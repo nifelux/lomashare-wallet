@@ -98,8 +98,11 @@ window.LomaInvest = (function () {
     const el = document.getElementById("investmentList");
     el.innerHTML = "";
 
-    document.getElementById("walletBalance").innerText =
-      "₦" + LomaWallet.load().approved.toLocaleString();
+    const balEl = document.getElementById("walletApproved");
+if (balEl) {
+  balEl.innerText =
+    "₦" + LomaWallet.load().approved.toLocaleString();
+}
 
     if (!list.length) {
       el.innerHTML = "<p>No investments yet</p>";
